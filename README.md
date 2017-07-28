@@ -17,6 +17,7 @@ example:
    ```composer install```
 
 (Please note this application won't work without composer install)
+
 4. Launch the application in a web browser
 
 # This simple page would:
