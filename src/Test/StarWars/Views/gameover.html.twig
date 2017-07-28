@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Form application {% endblock %}
+
+{% block message %}
+<span style="color: red">Game over. Dark Vador doesn't have Hit Points!.</span>
+{% endblock %}
+
+{% block body %}
+    <div>
+
+    <div>
+        <table border="1" CELLPADDING="2" CELLSPACING="2" WIDTH="40%">
+            <tr>
+                <td colspan="2"><a href="{{ href }}"> New game</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <div>
+            <h3>Star War</h3>
+
+            <table border="1" CELLPADDING="2" CELLSPACING="2" WIDTH="80%">
+                <tr>
+                    <th>Type</th>
+                    <th>Points</th>
+                    <th>Status</th>
+                </tr>
+                {% for key,value in starWarDetails %}
+                    {% for starKey,starValue in value %}
+                        {% for Key1,Value1 in starValue %}
+                            <tr>
+                                <td width="20%">{{ key|capitalize }}</td>
+                                <td width="10%">{{ Value1 }}  </td>
+                                <td width="10%"><span style="color: red">Dead</span></td>
+
+                            </tr>
+                        {%  endfor %}
+                    {%  endfor %}
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+{% endblock %}

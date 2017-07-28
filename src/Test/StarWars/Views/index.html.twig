@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Form application {% endblock %}
+
+{% block body %}
+<div>
+
+    <div>
+        <table border="1" CELLPADDING="2" CELLSPACING="2" WIDTH="80%">
+            <tr>
+                <td><p>[<a href="{{ href }}/hit"> Random Hit</a>]</p></td>
+                <td>[<a href="{{ href }}"> New game</a>]</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <div>
+            <h3>Star Wars</h3>
+
+            <table border="1" CELLPADDING="2" CELLSPACING="2" WIDTH="80%">
+                <tr>
+                    <th>Type</th>
+                    <th>Points</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                {% for key,value in starWarDetails %}
+                    {% for starKey,starValue in value %}
+                        {% for Key1,Value1 in starValue %}
+                    <tr>
+                        <td width="20%">{{ key|capitalize }}</td>
+                        <td width="10%">{{ Value1 }}  </td>
+                        <td width="10%">{% if Value1 > 5 %}
+                                <span style="color: darkgreen">Alive</span>
+                        {% else %}
+                            <span style="color: red">Dead</span>
+                        {% endif %}</td>
+                        <td width="10%">
+                            <form action="{{ href }}/hit" method="post">
+                                <div>
+                                    <input type="hidden" name="type" value="{{ key }}">
+                                    <input type="hidden" name="number" value="{{ Key1 }}">
+                                    <input type="submit" value="Hit">
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                        {%  endfor %}
+                    {%  endfor %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
