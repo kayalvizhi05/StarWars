@@ -17,7 +17,6 @@ This simple page would
 
 # Instructions to run PHPUnit:
 
-```cd TechTest```
 ```phpunit```
 
 # Note:
